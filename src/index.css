@@ -11,3 +11,58 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.mcq-wrapper{
+  height: 30vh;
+  width: 60vw;
+  background-color: white;
+  margin: 20px;
+  
+  padding: 10px;
+    border: 1px solid #77aaff;
+    box-shadow:  -1px 1px #77aaff,
+         -2px 2px #77aaff,
+         -3px 3px #77aaff,
+         -4px 4px #77aaff,
+         -5px 5px #77aaff;
+}
+
+#question-text{
+  font-weight: 800;
+}
+
+.mcq-option{
+  margin: 5px;
+}
+
+#mcqList-heading{
+  margin: 10px;
+}
+
+
+.side-panel{
+  border-right: 2px solid black;
+}
+
+.mcqList{
+  height: 100vh;
+  overflow: scroll;
+  /* display: inline-block; */
+}
+
+/* div,h1,h2,h3{
+  display: inline-block;
+} */
+
+.mcqList::-webkit-scrollbar {
+  width: 0.5em;
+}
+ 
+.mcqList::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+.mcqList::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}

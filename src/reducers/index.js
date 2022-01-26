@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
-// // import posts from './posts';
-// import doubts from './doubts';
-// import activeDoubt from './activeDoubt';
+import mcqs from './mcqs';
+
 
 export default combineReducers({
-    // doubts,
-    // activeDoubt
+    mcqs,
+
 });
