@@ -24,7 +24,7 @@ class Mcq extends Component {
     return (
       <div className="mcq-wrapper">
         <div className="mcq-question">
-          <span><span id="question-text">Question-</span>{mcq.question}</span>
+          <span><span id="question-text">Question-</span><span className="question-wrapper">{mcq.question}</span></span>
         </div>
         <form>
           {mcq.options.map((option) => (

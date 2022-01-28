@@ -68,7 +68,7 @@ class Home extends Component {
           <Col id="McqList-wrapper" lg={10} style={{padding:'0px'}}>
             {this.state.activeTab==='mcq'&&
             <div className="mcqList">
-              {mcqs.length !== 0 && <div id="mcqList-heading">MCQ's</div>}
+              <div id="mcqList-heading">MCQ's</div>
               {mcqs.map((mcq) => (
                 <Mcq mcq={mcq} key={mcq._id} dispatch={this.props.dispatch} />
               ))}
@@ -76,7 +76,7 @@ class Home extends Component {
             }
             {this.state.activeTab==='fill'&&
               <div className="fillList">
-                {fills.length !== 0 && <div id="fillList-heading">Fill in the Blanks</div>}
+                <div id="fillList-heading">Fill in the Blanks</div>
                 {fills.map((fill) => (
                 <Fill fill={fill} key={fill._id} dispatch={this.props.dispatch} />
               ))}

@@ -16,6 +16,7 @@ code {
   height: 30vh;
   width: 60vw;
   background-color: white;
+  overflow: hidden;
   /* margin: 20px; */
   margin: 20px auto;
   padding: 10px;
@@ -141,3 +142,26 @@ code {
   /* overflow: scroll; */
   background-color:midnightblue;
 }
+
+.correct-text{
+  font-weight: 500;
+  color: green;
+}
+.tick{
+  height: auto;
+  width: 2.5vw;
+
+}
+
+.wrong-text{
+  font-weight: 500;
+  color: red;
+}
+
+.cross{
+  height: auto;
+  width: 2vw;
+
+}
+
+
