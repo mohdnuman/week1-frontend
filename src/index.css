@@ -75,12 +75,16 @@ code {
   font-weight: 800;
   border: 1px solid black;
   border-radius: 10px;
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
 }
 
 .side-option:hover {
-  background-color: #85ffbd;
-  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+  /* background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%); */
 
+  background-color: white;
+  background-image: none;
   cursor: pointer;
 }
 
@@ -114,13 +118,12 @@ code {
 
   font-weight: 700;
 }
-.fillList{
+.fillList {
   height: 100vh;
   overflow: scroll;
-
 }
 
-.answer-input{
+.answer-input {
   margin: 10px;
   margin-top: 4vh;
   border: 0px;
@@ -128,40 +131,35 @@ code {
   outline: none;
 }
 
-.submit-button{
+.submit-button {
   background-color: white;
   font-style: none;
-  border:2px solid greenyellow;
+  border: 2px solid greenyellow;
   border-radius: 5px;
   margin: 10px;
-
 }
 
-.code-editor{
+.code-editor {
   height: 100vh;
   /* overflow: scroll; */
-  background-color:midnightblue;
+  background-color: midnightblue;
 }
 
-.correct-text{
+.correct-text {
   font-weight: 500;
   color: green;
 }
-.tick{
+.tick {
   height: auto;
   width: 2.5vw;
-
 }
 
-.wrong-text{
+.wrong-text {
   font-weight: 500;
   color: red;
 }
 
-.cross{
+.cross {
   height: auto;
   width: 2vw;
-
 }
-
-
