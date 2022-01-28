@@ -1,1 +1,2 @@
 export const UPDATE_MCQS="UPDATE_MCQS";
+export const UPDATE_FILLS="UPDATE_FILLS";

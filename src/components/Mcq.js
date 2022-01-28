@@ -24,17 +24,18 @@ class Mcq extends Component {
     return (
       <div className="mcq-wrapper">
         <div className="mcq-question">
-          <span className="user-name"><span id="question-text">Question-</span>{mcq.question}</span>
+          <span><span id="question-text">Question-</span>{mcq.question}</span>
         </div>
         <form>
           {mcq.options.map((option) => (
             <div className="mcq-option"><input type="radio" name="option1" value={option} />{option}</div>
           ))}
-        </form>
-        
-        <button className="mcq-button" onClick={this.handleSubmit}>
+          <button className="submit-button" onClick={this.handleSubmit}>
           SUBMIT
         </button>
+        </form>
+        
+        
         
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {fetchMcqs} from '../actions/mcqs';
+import { fetchFills } from "../actions/fills";
 import { connect } from "react-redux";
 import {
   BrowserRouter as Router,
@@ -12,17 +13,21 @@ import 'bootstrap/dist/css/bootstrap.css';
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(fetchMcqs());
+    this.props.dispatch(fetchFills());
+
   }
 
   render() {
     const mcqs=this.props.mcqs;
+    const fills=this.props.fills;
+
     return (
       <Router>
         <div className="App">
           <Navbar />
           <Switch>
           <Route exact path="/" render={(props)=>{
-              return (<div><McqList {...props} mcqs={mcqs}/></div>)
+              return (<div><McqList {...props} mcqs={mcqs} fills={fills}/></div>)
             }}/>
 
           </Switch>
@@ -36,6 +41,7 @@ class App extends Component {
 function mapstatetoprops(state) {
   return {
     mcqs: state.mcqs,
+    fills:state.fills
   };
 }
 
