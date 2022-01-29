@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { addFillMarks } from "../actions/marks";
 
 class Fill extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Fill extends Component {
 
   handleSubmit = () => {
     if (this.props.fill.answer === this.state.answer) {
+      this.props.dispatch(addFillMarks());
       this.setState({
         message: "correct",
         answered: true,

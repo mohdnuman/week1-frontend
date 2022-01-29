@@ -120,6 +120,7 @@ code {
 }
 .fillList {
   height: 100vh;
+  width: 84vw;
   overflow: scroll;
 }
 
@@ -139,11 +140,8 @@ code {
   margin: 10px;
 }
 
-.code-editor {
-  height: 100vh;
-  /* overflow: scroll; */
-  background-color: midnightblue;
-}
+
+
 
 .correct-text {
   font-weight: 500;
@@ -162,4 +160,28 @@ code {
 .cross {
   height: auto;
   width: 2vw;
+}
+.editor{
+  width: 84vw;
+}
+
+.code-submit-button{
+  background-color: greenyellow;
+  width: 8vw;
+  margin: 1vh;
+  border:1px solid green;
+}
+.submit-button-container{
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+  height: 6vh;
+  text-align: center;
+}
+
+.marks-show{
+  margin-left: 65vw;
+  color: grey;
+  font-weight: 400;
+  font-size: 1rem;
+
 }

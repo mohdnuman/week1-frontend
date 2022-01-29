@@ -52,7 +52,8 @@ class Home extends Component {
   render() {
     const mcqs = this.props.mcqs;
     const fills=this.props.fills;
-    this.shuffle(mcqs);
+    const marks=this.props.marks;
+    // this.shuffle(mcqs);
     return (
         <Row lg={2}>
           <Col className="side-panel" lg={2} style={{padding:'0px'}}>
@@ -68,7 +69,7 @@ class Home extends Component {
           <Col id="McqList-wrapper" lg={10} style={{padding:'0px'}}>
             {this.state.activeTab==='mcq'&&
             <div className="mcqList">
-              <div id="mcqList-heading">MCQ's</div>
+              <div id="mcqList-heading">MCQ's <span className="marks-show">MARKS OBTAINED-{marks.mcqMarks}/10</span> </div>
               {mcqs.map((mcq) => (
                 <Mcq mcq={mcq} key={mcq._id} dispatch={this.props.dispatch} />
               ))}
@@ -76,7 +77,7 @@ class Home extends Component {
             }
             {this.state.activeTab==='fill'&&
               <div className="fillList">
-                <div id="fillList-heading">Fill in the Blanks</div>
+                <div id="fillList-heading">Fill in the Blanks <span className="marks-show"style={{marginLeft:'55vw'}}>MARKS OBTAINED-{marks.fillMarks}/10</span></div>
                 {fills.map((fill) => (
                 <Fill fill={fill} key={fill._id} dispatch={this.props.dispatch} />
               ))}
@@ -84,6 +85,7 @@ class Home extends Component {
             }
             {this.state.activeTab==='code'&&
               <div className="code-editor">
+                <div id="fillList-heading">Code <span className="marks-show" >MARKS OBTAINED-{marks.codeMarks}/10</span></div>
                 <CodeEditor/>
               </div>
             }

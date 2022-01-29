@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { addMcqMarks } from "../actions/marks";
 
 class Mcq extends Component {
 
@@ -21,6 +22,7 @@ class Mcq extends Component {
     event.preventDefault();
     console.log(this.state.selectedOption);
     if(this.props.mcq.answer===this.state.selectedOption){
+      this.props.dispatch(addMcqMarks())
       this.setState({
         message:'correct',
         answered:true

@@ -20,6 +20,7 @@ class App extends Component {
   render() {
     const mcqs=this.props.mcqs;
     const fills=this.props.fills;
+    const marks=this.props.marks;
 
     return (
       <Router>
@@ -27,7 +28,7 @@ class App extends Component {
           <Navbar />
           <Switch>
           <Route exact path="/" render={(props)=>{
-              return (<div><McqList {...props} mcqs={mcqs} fills={fills}/></div>)
+              return (<div><McqList {...props} mcqs={mcqs} fills={fills} marks={marks} dispatch={this.props.dispatch}/></div>)
             }}/>
 
           </Switch>
@@ -41,7 +42,8 @@ class App extends Component {
 function mapstatetoprops(state) {
   return {
     mcqs: state.mcqs,
-    fills:state.fills
+    fills:state.fills,
+    marks:state.marks
   };
 }
 
