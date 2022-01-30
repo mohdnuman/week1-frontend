@@ -43,6 +43,7 @@ code {
 
 .mcqList {
   height: 100vh;
+  /* width:84vw; */
   overflow: scroll;
 }
 
@@ -120,7 +121,7 @@ code {
 }
 .fillList {
   height: 100vh;
-  width: 84vw;
+  /* width: 84vw; */
   overflow: scroll;
 }
 
@@ -140,8 +141,11 @@ code {
   margin: 10px;
 }
 
-
-
+.code-editor {
+  /* height: 100vh; */
+  width: 84vw;
+  overflow: scroll;
+}
 
 .correct-text {
   font-weight: 500;
@@ -161,34 +165,42 @@ code {
   height: auto;
   width: 2vw;
 }
-.editor{
-  width: 84vw;
-}
 
-.code-submit-button{
+.code-submit-button {
   background-color: greenyellow;
   width: 8vw;
   margin: 1vh;
-  border:1px solid green;
+  border: 1px solid green;
 }
-.submit-button-container{
+.submit-button-container {
   background-color: #85ffbd;
   background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
   height: 6vh;
   text-align: center;
 }
 
-.marks-show{
+.marks-show {
   margin-left: 5vw;
   color: green;
   font-weight: 600;
   font-size: 1rem;
-
 }
-.time-show{
+.time-show {
   margin-left: 60vw;
   color: grey;
   font-weight: 400;
   font-size: 1rem;
+}
+.time{
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-top: 35vh;
+  color: red;
+  width: 14vw;
+  overflow: hidden;
+}
 
+.score{
+  color: green;
+  margin-left: 2vw;
 }

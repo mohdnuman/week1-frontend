@@ -21,12 +21,21 @@ export default function mcqs(state = initialMarksState, action) {
         mcqMarks: state.mcqMarks,
       };
     case UPDATE_CODE_MARKS:
+      if(action.status===200)
       return {
-        codeMarks: state.codeMarks + 1,
+        codeMarks: state.codeMarks + 10,
         mcqMarks: state.mcqMarks,
         fillMarks:state.fillMarks,
         
       };
+      else{
+        return {
+          codeMarks: state.codeMarks ,
+          mcqMarks: state.mcqMarks,
+          fillMarks:state.fillMarks,
+          
+        };
+      }
     default:
       return state;
   }

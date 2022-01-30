@@ -8,7 +8,8 @@ class Home extends Component {
     super(props);
     this.state={
       activeTab:'mcq',
-      time: {}, seconds:2700 
+      time: {}, seconds:2700,
+      fininshed:false
     }
     this.timer = 0;
     this.startTimer = this.startTimer.bind(this);
@@ -73,6 +74,7 @@ class Home extends Component {
     // Check if we're at zero.
     if (seconds == 0) { 
       clearInterval(this.timer);
+      this.setState({fininshed:true});
     }
   }
 
@@ -111,12 +113,15 @@ class Home extends Component {
             <div className="side-option" onClick={this.handleMcq}>MCQs<span className="marks-show">{marks.mcqMarks}/10</span></div>
             <div className="side-option" onClick={this.handleFill}>Fill in the blanks<span className="marks-show">{marks.fillMarks}/10</span></div>
             <div className="side-option" onClick={this.handleCode}>Code<span className="marks-show">{marks.codeMarks}/10</span></div>
+            {!this.state.fininshed&&<div className="side-option time" onClick={this.handleCode}>Time Left-{this.state.time.m} mins  {this.state.time.s} seconds </div>}
+            {this.state.fininshed&&<div className="side-option time" onClick={this.handleCode}>Test Finished <span className="score">Score-{marks.mcqMarks+marks.fillMarks+marks.codeMarks}/30</span></div>}
+
 
           </Col>
           <Col id="McqList-wrapper" lg={10} style={{padding:'0px'}}>
             {this.state.activeTab==='mcq'&&
             <div className="mcqList">
-              <div id="mcqList-heading">MCQ's  <span className="time-show">TIME LEFT- {this.state.time.m} mins  {this.state.time.s} seconds </span> </div>
+              <div id="mcqList-heading">MCQ's </div>
               {mcqs.map((mcq) => (
                 <Mcq mcq={mcq} key={mcq._id} dispatch={this.props.dispatch} />
               ))}
@@ -124,7 +129,7 @@ class Home extends Component {
             }
             {this.state.activeTab==='fill'&&
               <div className="fillList">
-                <div id="fillList-heading">Fill in the Blanks <span className="time-show"style={{marginLeft:'52vw'}}>TIME LEFT- {this.state.time.m} mins  {this.state.time.s} seconds </span></div>
+                <div id="fillList-heading">Fill in the Blanks</div>
                 {fills.map((fill) => (
                 <Fill fill={fill} key={fill._id} dispatch={this.props.dispatch} />
               ))}
@@ -132,8 +137,8 @@ class Home extends Component {
             }
             {this.state.activeTab==='code'&&
               <div className="code-editor">
-                <div id="fillList-heading">Code <span className="time-show">TIME LEFT- {this.state.time.m} mins  {this.state.time.s} seconds </span></div>
-                <CodeEditor/>
+                <div id="fillList-heading">Code</div>
+                <CodeEditor dispatch={this.props.dispatch}/>
               </div>
             }
           </Col>
