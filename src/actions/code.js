@@ -11,8 +11,7 @@ export function executeCode(content){
             // headers:{
             //     'Content-Type':'application/json',
             // },
-            json:content
-            // body:getFormBody({content}),
+            json:JSON.stringify(content)
         }).then((response)=>{
             // console.log(response);
             return response.json();
