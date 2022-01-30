@@ -7,7 +7,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import {McqList,Navbar} from './index';
+import {Home,Navbar} from './index';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
@@ -28,7 +28,7 @@ class App extends Component {
           <Navbar />
           <Switch>
           <Route exact path="/" render={(props)=>{
-              return (<div><McqList {...props} mcqs={mcqs} fills={fills} marks={marks} dispatch={this.props.dispatch}/></div>)
+              return (<div><Home {...props} mcqs={mcqs} fills={fills} marks={marks} dispatch={this.props.dispatch}/></div>)
             }}/>
 
           </Switch>

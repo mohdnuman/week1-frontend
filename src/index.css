@@ -179,7 +179,14 @@ code {
 }
 
 .marks-show{
-  margin-left: 65vw;
+  margin-left: 5vw;
+  color: green;
+  font-weight: 600;
+  font-size: 1rem;
+
+}
+.time-show{
+  margin-left: 60vw;
   color: grey;
   font-weight: 400;
   font-size: 1rem;

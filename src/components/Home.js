@@ -7,8 +7,18 @@ class Home extends Component {
   constructor(props){
     super(props);
     this.state={
-      activeTab:'mcq'
+      activeTab:'mcq',
+      time: {}, seconds:2700 
     }
+    this.timer = 0;
+    this.startTimer = this.startTimer.bind(this);
+    this.countDown = this.countDown.bind(this);
+  }
+
+  componentDidMount() {
+    let timeLeftVar = this.secondsToTime(this.state.seconds);
+    this.startTimer();
+    this.setState({ time: timeLeftVar });
   }
 
   handleMcq=()=>{
@@ -27,6 +37,43 @@ class Home extends Component {
     this.setState({
       activeTab:'code'
     });
+  }
+
+  secondsToTime(secs){
+    let hours = Math.floor(secs / (60 * 60));
+
+    let divisor_for_minutes = secs % (60 * 60);
+    let minutes = Math.floor(divisor_for_minutes / 60);
+
+    let divisor_for_seconds = divisor_for_minutes % 60;
+    let seconds = Math.ceil(divisor_for_seconds);
+
+    let obj = {
+      "h": hours,
+      "m": minutes,
+      "s": seconds
+    };
+    return obj;
+  }
+
+  startTimer() {
+    if (this.timer == 0 && this.state.seconds > 0) {
+      this.timer = setInterval(this.countDown, 1000);
+    }
+  }
+
+  countDown() {
+    // Remove one second, set state so a re-render happens.
+    let seconds = this.state.seconds - 1;
+    this.setState({
+      time: this.secondsToTime(seconds),
+      seconds: seconds,
+    });
+    
+    // Check if we're at zero.
+    if (seconds == 0) { 
+      clearInterval(this.timer);
+    }
   }
 
   shuffle = (array) => {
@@ -58,18 +105,18 @@ class Home extends Component {
         <Row lg={2}>
           <Col className="side-panel" lg={2} style={{padding:'0px'}}>
             <div className="test-heading">
-              <img src="https://cdn-icons.flaticon.com/png/512/3403/premium/3403504.png?token=exp=1643365482~hmac=f91a5d5791f31f86260036057226f3ee" style={{height:'8vh', width:'5vw' ,display:"inline-block" ,margin:'20px'}}/>
+              <img src="https://cdn-icons.flaticon.com/png/512/3403/premium/3403504.png?token=exp=1643538456~hmac=c1551d4cde0cece5e38d5e10ca1b633a" style={{height:'8vh', width:'5vw' ,display:"inline-block" ,margin:'20px'}}/>
             <h3 style={{display:'inline-block', fontWeight:'700'}}>TEST</h3>
             </div>
-            <div className="side-option" onClick={this.handleMcq}>MCQs</div>
-            <div className="side-option" onClick={this.handleFill}>Fill in the blanks</div>
-            <div className="side-option" onClick={this.handleCode}>Code</div>
+            <div className="side-option" onClick={this.handleMcq}>MCQs<span className="marks-show">{marks.mcqMarks}/10</span></div>
+            <div className="side-option" onClick={this.handleFill}>Fill in the blanks<span className="marks-show">{marks.fillMarks}/10</span></div>
+            <div className="side-option" onClick={this.handleCode}>Code<span className="marks-show">{marks.codeMarks}/10</span></div>
 
           </Col>
           <Col id="McqList-wrapper" lg={10} style={{padding:'0px'}}>
             {this.state.activeTab==='mcq'&&
             <div className="mcqList">
-              <div id="mcqList-heading">MCQ's <span className="marks-show">MARKS OBTAINED-{marks.mcqMarks}/10</span> </div>
+              <div id="mcqList-heading">MCQ's  <span className="time-show">TIME LEFT- {this.state.time.m} mins  {this.state.time.s} seconds </span> </div>
               {mcqs.map((mcq) => (
                 <Mcq mcq={mcq} key={mcq._id} dispatch={this.props.dispatch} />
               ))}
@@ -77,7 +124,7 @@ class Home extends Component {
             }
             {this.state.activeTab==='fill'&&
               <div className="fillList">
-                <div id="fillList-heading">Fill in the Blanks <span className="marks-show"style={{marginLeft:'55vw'}}>MARKS OBTAINED-{marks.fillMarks}/10</span></div>
+                <div id="fillList-heading">Fill in the Blanks <span className="time-show"style={{marginLeft:'52vw'}}>TIME LEFT- {this.state.time.m} mins  {this.state.time.s} seconds </span></div>
                 {fills.map((fill) => (
                 <Fill fill={fill} key={fill._id} dispatch={this.props.dispatch} />
               ))}
@@ -85,7 +132,7 @@ class Home extends Component {
             }
             {this.state.activeTab==='code'&&
               <div className="code-editor">
-                <div id="fillList-heading">Code <span className="marks-show" >MARKS OBTAINED-{marks.codeMarks}/10</span></div>
+                <div id="fillList-heading">Code <span className="time-show">TIME LEFT- {this.state.time.m} mins  {this.state.time.s} seconds </span></div>
                 <CodeEditor/>
               </div>
             }
