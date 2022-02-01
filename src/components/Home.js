@@ -114,8 +114,8 @@ class Home extends Component {
             <div className="side-option" onClick={this.handleMcq}>MCQs<span className="marks-show">{marks.mcqMarks}/10</span></div>
             <div className="side-option" onClick={this.handleFill}>Fill in the blanks<span className="marks-show">{marks.fillMarks}/10</span></div>
             <div className="side-option" onClick={this.handleCode}>Code<span className="marks-show">{marks.codeMarks}/10</span></div>
-            {!this.state.fininshed&&<div className="side-option time">Time Left-{this.state.time.m} mins  {this.state.time.s} seconds </div>}
-            {this.state.fininshed&&<div className="side-option time">Test Finished <span className="score">Score-{marks.mcqMarks+marks.fillMarks+marks.codeMarks}/30</span></div>}
+            {!this.state.fininshed&&<div className="side-time-option time">Time Left-{this.state.time.m} mins  {this.state.time.s} seconds </div>}
+            {this.state.fininshed&&<div className="side-time-option time">Test Finished <span className="score">Score-{marks.mcqMarks+marks.fillMarks+marks.codeMarks}/30</span></div>}
 
 
           </Col>

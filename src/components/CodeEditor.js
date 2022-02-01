@@ -3,6 +3,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
 import {cpp } from "@codemirror/lang-cpp";
 import { executeCode } from "../actions/code";
+import { oneDark } from '@codemirror/theme-one-dark';
 
 class CodeEditor extends Component {
   constructor(props){
@@ -27,6 +28,7 @@ class CodeEditor extends Component {
           className="editor"
           value="cout<<'hello world';"
           height="84vh"
+          theme={oneDark}
           // extensions={[javascript({ jsx: true })]}
           extensions={[cpp()]}
           onChange={(value, viewUpdate) => {

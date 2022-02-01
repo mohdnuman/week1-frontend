@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 
 class Codepanel extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            activeTab:''
+        }
+    }
     render() {
         const code=this.props.code;
         return (
             <div>
+                
                 <div className='problem-text'>
                     Problem
                 </div>
+               
+                
                 <div className='code-question'> 
                     {code.question}
                 </div>

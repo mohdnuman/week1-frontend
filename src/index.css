@@ -81,6 +81,16 @@ code {
   background-color: #85ffbd;
   background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
 }
+.side-time-option{
+  margin: 20px;
+  padding: 20px;
+  /* text-align: center; */
+  font-weight: 800;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+}
 
 .side-option:hover {
   /* background-color: #85ffbd;
@@ -209,10 +219,12 @@ code {
   margin-left: 2vw;
 }
 
+
 .problem-text{
-  margin: 5px;
-  font-size: 1rem;
+  margin:5px;
   font-weight: 700;
+  font-size: 1rem;
+
 }
 .code-question{
   margin: 8px;
