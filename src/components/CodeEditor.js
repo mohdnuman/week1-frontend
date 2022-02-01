@@ -17,7 +17,7 @@ class CodeEditor extends Component {
     }
   }
   handleSubmit=()=>{
-    this.props.dispatch(executeCode(this.state));
+    // this.props.dispatch(executeCode(this.state));
   }
   render() {
     return (

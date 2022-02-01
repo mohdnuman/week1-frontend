@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Mcq ,Fill, CodeEditor} from "./index";
+import { Mcq ,Fill, CodeEditor,Codepanel} from "./index";
 import { Row, Col } from "react-bootstrap";
 
 class Home extends Component {
@@ -102,19 +102,20 @@ class Home extends Component {
     const mcqs = this.props.mcqs;
     const fills=this.props.fills;
     const marks=this.props.marks;
+    const code=this.props.code;
     // this.shuffle(mcqs);
     return (
         <Row lg={2}>
           <Col className="side-panel" lg={2} style={{padding:'0px'}}>
             <div className="test-heading">
-              <img src="https://cdn-icons.flaticon.com/png/512/3403/premium/3403504.png?token=exp=1643538456~hmac=c1551d4cde0cece5e38d5e10ca1b633a" style={{height:'8vh', width:'5vw' ,display:"inline-block" ,margin:'20px'}}/>
+              <img src="https://cdn-icons.flaticon.com/png/512/3403/premium/3403504.png?token=exp=1643714716~hmac=bd82e201868c10906bae59c23d080d49" style={{height:'8vh', width:'4vw' ,display:"inline-block" ,margin:'20px'}}/>
             <h3 style={{display:'inline-block', fontWeight:'700'}}>TEST</h3>
             </div>
             <div className="side-option" onClick={this.handleMcq}>MCQs<span className="marks-show">{marks.mcqMarks}/10</span></div>
             <div className="side-option" onClick={this.handleFill}>Fill in the blanks<span className="marks-show">{marks.fillMarks}/10</span></div>
             <div className="side-option" onClick={this.handleCode}>Code<span className="marks-show">{marks.codeMarks}/10</span></div>
-            {!this.state.fininshed&&<div className="side-option time" onClick={this.handleCode}>Time Left-{this.state.time.m} mins  {this.state.time.s} seconds </div>}
-            {this.state.fininshed&&<div className="side-option time" onClick={this.handleCode}>Test Finished <span className="score">Score-{marks.mcqMarks+marks.fillMarks+marks.codeMarks}/30</span></div>}
+            {!this.state.fininshed&&<div className="side-option time">Time Left-{this.state.time.m} mins  {this.state.time.s} seconds </div>}
+            {this.state.fininshed&&<div className="side-option time">Test Finished <span className="score">Score-{marks.mcqMarks+marks.fillMarks+marks.codeMarks}/30</span></div>}
 
 
           </Col>
@@ -138,7 +139,10 @@ class Home extends Component {
             {this.state.activeTab==='code'&&
               <div className="code-editor">
                 <div id="fillList-heading">Code</div>
-                <CodeEditor dispatch={this.props.dispatch}/>
+                <Row>
+                <Col lg={2} className="code-panel"><Codepanel code={code}/></Col>
+                <Col lg={10}><CodeEditor dispatch={this.props.dispatch}/></Col>
+                </Row>
               </div>
             }
           </Col>

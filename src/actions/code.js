@@ -1,6 +1,6 @@
 import { APIUrls } from '../helpers/urls';
 import getFormBody from '../helpers/utils';
-import {UPDATE_CODE_MARKS} from '../actions/actionTypes';
+import {UPDATE_CODE, UPDATE_CODE_MARKS} from '../actions/actionTypes';
 
 export function executeCode(content){
     console.log(content);
@@ -17,14 +17,34 @@ export function executeCode(content){
             return response.json();
         }).then((data)=>{
             console.log(data);
-            dispatch(updateCode(data.statusCode));
+            dispatch(updateCodeMarks(data.statusCode));
         });
     };
 } 
 
-export function updateCode(status){
+export function updateCodeMarks(status){
     return {
         type:UPDATE_CODE_MARKS,
         status,
+    };
+} 
+
+export function fetchCode(){
+    return (dispatch)=>{
+        const url=APIUrls.fetchCode();
+        fetch(url).then((response)=>{
+            // console.log(response);
+            return response.json();
+        }).then((data)=>{
+            console.log(data);
+            dispatch(updateCode(data.code));
+        });
+    };
+} 
+
+export function updateCode(code){
+    return {
+        type:UPDATE_CODE,
+        code,
     };
 } 
